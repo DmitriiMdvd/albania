@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Урок 2: Диграфы в албанском</title>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: #f3f9ff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    h1 {
+      color: #004080;
+    }
+    .description {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .choice {
+      padding: 10px;
+      background: #e0f0ff;
+      border: 2px solid transparent;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.2s;
+    }
+    .choice.correct {
+      background: #c7f9cc;
+      border-color: #38b000;
+    }
+    .choice.wrong {
+      background: #ffc9c9;
+      border-color: #d00000;
+    }
+    #nextBtn {
+      margin-top: 25px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      display: none;
+    }
+    #score {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Урок 2: Диграфы</h1>
+    <div class="description" id="question">Звук как английское "th" в слове <i>that</i></div>
+    <div class="choices" id="choices"></div>
+    <div id="score">Очки: 0</div>
+    <button id="nextBtn">Следующий</button>
+  </div>
+  <script>
+    const questions = [
+      { description: 'Звук как английское "th" в слове that (мягкий з)', correct: "Dh", choices: ["Th", "Dh", "Gj"] },
+      { description: 'Звук как английское "ch" в слове chair', correct: "Ç", choices: ["Sh", "Ç", "Zh"] },
+      { description: 'Звук как английское "j" в слове job', correct: "Xh", choices: ["Gj", "Xh", "Zh"] },
+      { description: 'Очень мягкий звук «нь», как в слове «пень»', correct: "Nj", choices: ["Nj", "Ll", "Dh"] },
+      { description: 'Сильное вибрирующее “рр” (раскатистое)', correct: "Rr", choices: ["R", "Rr", "Ll"] },
+      { description: 'Мягкое “дж” (как в слове «джаз»)', correct: "Gj", choices: ["Xh", "Gj", "Sh"] },
+      { description: 'Звук как французское “j” в слове "journal"', correct: "Zh", choices: ["Ç", "Sh", "Zh"] },
+      { description: 'Долгое “л”, язык напряжён, не как русское “ль”', correct: "Ll", choices: ["L", "Ll", "Nj"] },
+      { description: 'Глухой “ш” (как в английском ship)', correct: "Sh", choices: ["Ç", "Sh", "Zh"] },
+      { description: 'Глухой “тх”, как в think (не как в that)', correct: "Th", choices: ["Dh", "Th", "Gj"] }
+    ];
+    let current = 0, score = 0;
+    const questionEl = document.getElementById("question");
+    const choicesEl = document.getElementById("choices");
+    const scoreEl = document.getElementById("score");
+    const nextBtn = document.getElementById("nextBtn");
+
+    function showQuestion() {
+      const q = questions[current];
+      questionEl.textContent = q.description;
+      choicesEl.innerHTML = "";
+      nextBtn.style.display = "none";
+      q.choices.forEach(choice => {
+        const btn = document.createElement("div");
+        btn.className = "choice";
+        btn.textContent = choice;
+        btn.onclick = () => checkAnswer(btn, choice === q.correct);
+        choicesEl.appendChild(btn);
+      });
+    }
+
+    function checkAnswer(btn, correct) {
+      document.querySelectorAll(".choice").forEach(c => c.onclick = null);
+      btn.classList.add(correct ? "correct" : "wrong");
+      if (correct) score++;
+      scoreEl.textContent = "Очки: " + score;
+      nextBtn.style.display = "inline-block";
+    }
+
+    nextBtn.onclick = () => {
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        questionEl.innerHTML = "🎉 Урок завершён!";
+        choicesEl.innerHTML = `<p>Вы набрали <strong>${score} из ${questions.length}</strong> очков.</p><p><a href='lesson3.html'>👉 Перейти к уроку 3</a></p>`;
+        nextBtn.style.display = "none";
+      }
+    };
+
+    showQuestion();
+  </script>
+</body>
+</html>
