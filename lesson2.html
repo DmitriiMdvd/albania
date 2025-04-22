@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="ru"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Урок 2: Диграфы в албанском&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: "Segoe UI", sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f3f9ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 600px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 40px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 8px 30px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: #004080;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.description {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 20px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.choices {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex-direction: column;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 12px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.choice {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e0f0ff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid transparent;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.choice.correct {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #c7f9cc;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: #38b000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.choice.wrong {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffc9c9;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-color: #d00000;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#nextBtn {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 25px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #004080;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 6px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: none;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>#score {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-weight: bold;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 18px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Урок 2: Диграфы&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="description" id="question"&gt;Звук как английское "th" в слове &lt;i&gt;that&lt;/i&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="choices" id="choices"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="score"&gt;Очки: 0&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="nextBtn"&gt;Следующий&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const questions = [</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Звук как английское "th" в слове that (мягкий з)',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Dh",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Th", "Dh", "Gj"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Звук как английское "ch" в слове chair',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Ç",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Sh", "Ç", "Zh"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Звук как английское "j" в слове job',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Xh",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Gj", "Xh", "Zh"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Очень мягкий звук «нь», как в слове «пень»',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Nj",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Nj", "Ll", "Dh"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Сильное вибрирующее “рр” (раскатистое)',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Rr",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["R", "Rr", "Ll"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Мягкое “дж” (как в слове «джаз»)',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Gj",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Xh", "Gj", "Sh"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Звук как французское “j” в слове "journal"',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Zh",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Ç", "Sh", "Zh"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Долгое “л”, язык напряжён, не как русское “ль”',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Ll",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["L", "Ll", "Nj"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Глухой “ш” (как в английском ship)',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Sh",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Ç", "Sh", "Zh"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>},</p>
+<p class="p1"><span class="Apple-converted-space">      </span>{</p>
+<p class="p1"><span class="Apple-converted-space">        </span>description: 'Глухой “тх”, как в think (не как в that)',</p>
+<p class="p1"><span class="Apple-converted-space">        </span>correct: "Th",</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choices: ["Dh", "Th", "Gj"]</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>let current = 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let score = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>const questionEl = document.getElementById("question");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const choicesEl = document.getElementById("choices");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const scoreEl = document.getElementById("score");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const nextBtn = document.getElementById("nextBtn");</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function showQuestion() {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const q = questions[current];</p>
+<p class="p1"><span class="Apple-converted-space">      </span>questionEl.textContent = q.description;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>choicesEl.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>nextBtn.style.display = "none";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">      </span>q.choices.forEach(choice =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const btn = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">        </span>btn.className = "choice";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>btn.textContent = choice;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>btn.onclick = () =&gt; checkAnswer(btn, choice === q.correct);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choicesEl.appendChild(btn);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>function checkAnswer(btn, correct) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.querySelectorAll(".choice").forEach(c =&gt; c.onclick = null);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>btn.classList.add(correct ? "correct" : "wrong");</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (correct) score++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>scoreEl.textContent = "Очки: " + score;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>nextBtn.style.display = "inline-block";</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>nextBtn.onclick = () =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>current++;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if (current &lt; questions.length) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>showQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>questionEl.innerHTML = "🎉 Урок завершён!";</p>
+<p class="p1"><span class="Apple-converted-space">        </span>choicesEl.innerHTML = `&lt;p&gt;Вы набрали &lt;strong&gt;${score} из ${questions.length}&lt;/strong&gt; очков.&lt;/p&gt;&lt;p&gt;&lt;a href="lesson3.html"&gt;👉 Перейти к уроку 3&lt;/a&gt; (если готов)&lt;/p&gt;`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>nextBtn.style.display = "none";</p>
+<p class="p1"><span class="Apple-converted-space">      </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>};</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>showQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
